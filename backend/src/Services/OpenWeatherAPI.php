@@ -4,17 +4,20 @@
 namespace App\Services;
 
 
-class OpenWeatherAPI {
+class OpenWeatherAPI
+{
 
     protected $cityName;
     protected $keyAPI;
 
-    public function __construct($cityName, $keyAPI) {
+    public function __construct($cityName, $keyAPI)
+    {
         $this->cityName = $cityName;
         $this->keyAPI = $keyAPI;
     }
 
-    public function getCurrentWeatherByCity() {
+    public function getCurrentWeatherByCity()
+    {
         $queryToAPI = curl_init();
         $url = 'http://api.openweathermap.org/data/2.5/weather?q='.$this->cityName.'&appid='.$this->keyAPI.'&lang=ru';
         curl_setopt($queryToAPI, CURLOPT_RETURNTRANSFER, true);
@@ -61,7 +64,7 @@ class OpenWeatherAPI {
             $wind_direction = 'Неизвестно';
         }
 
-        $result = (array("city" => $resultOfQuery["name"],
+        $weatherInfo = (array("city" => $resultOfQuery["name"],
             "datetime" => $resultOfQuery["dt"],
             "temperature" => round(($resultOfQuery["main"]["temp"]-273.15)),
             "feels_like" => round(($resultOfQuery["main"]["feels_like"]-273.15)),
@@ -72,6 +75,6 @@ class OpenWeatherAPI {
             "cloudiness" => $resultOfQuery["clouds"]["all"]
         ));
 
-        return $result;
+        return $weatherInfo;
     }
 }
