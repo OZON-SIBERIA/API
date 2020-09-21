@@ -1,25 +1,25 @@
 <template>
-  <div class="wrapper-layote">
+  <div class="wrapper-layout">
       
       <HeaderFront/>
-      <SreachCity/>
+      <SearchCity/>
   </div>
 </template>
 
 <script>
 import HeaderFront from '../HeaderFront/HeaderFront'
-import SreachCity from '../SreachCity/SreachCity'
+import SearchCity from '../SearchCity/SearchCity'
 export default {
-    name: "Layote",
+    name: "Layout",
     components:{
         HeaderFront,
-        SreachCity
+      SearchCity
     }
 }
 </script>
 
 <style>
-.wrapper-layote{
+.wrapper-layout{
     width: 50%;
     background-color: #ccc;
     margin: 0 auto;

@@ -1,15 +1,15 @@
 <template>
   <div class="wrapper-app">
-    <Layote/>
+    <Layout/>
   </div>
  
 </template>
 <script>
-import Layote from '../src/components/Layote/Layote'
+import Layout from './components/Layout/Layout'
 export default {
   name: 'App',
   components: {
-    Layote
+    Layout
   }
 }
 </script>
