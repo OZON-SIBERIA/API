@@ -13,6 +13,9 @@ $routes = [
     ],
     "POST" => [
         '/' => [ServicesController::class, "getWeatherAction"]
+    ],
+    "OPTIONS" => [
+        '/' => [ServicesController::class, "optionsHandler"]
     ]
 ];
 

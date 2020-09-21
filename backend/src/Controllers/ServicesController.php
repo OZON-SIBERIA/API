@@ -18,7 +18,13 @@ class ServicesController
         $keyAPI = Config::getKeyAPI();
         $api = new OpenWeatherAPI($cityName, $keyAPI);
         $result = $api->getCurrentWeatherByCity();
+        //var_dump($result);
 
-        return JsonResponse::create((array)$result);
+        return JsonResponse::create($result);
+    }
+
+    public static function optionsHandler (Request $request): Response
+    {
+        return Response::create();
     }
 }
