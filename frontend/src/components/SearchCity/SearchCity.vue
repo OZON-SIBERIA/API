@@ -24,7 +24,7 @@ export default {
     searchApiPost() {
       let str = JSON.stringify(this.message);
       axios
-          .post('http://localhost:8080/', str)
+          .post('http://localhost:9000/', str)
           .then((response) => {
             console.log(response);
           })
