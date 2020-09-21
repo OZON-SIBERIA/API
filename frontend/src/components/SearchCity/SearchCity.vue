@@ -33,12 +33,12 @@ export default {
             console.log(error);
           });
 
-      axios
+      /*axios
           .get('http://localhost:9000/' )
           .then(response => {
             this.city = response.data;
           })
-          console.log(this.city)
+          console.log(this.city)*/
     }
   }
 }

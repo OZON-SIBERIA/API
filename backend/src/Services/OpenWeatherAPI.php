@@ -26,8 +26,10 @@ class OpenWeatherAPI
         curl_close($queryToAPI);
         $resultOfQuery = json_decode($resultOfQuery, true);
 
-        if(($resultOfQuery["wind"]["deg"]>= 0 and $resultOfQuery["wind"]["deg"] <= 22.5)
-        or ($resultOfQuery["wind"]["deg"]>= 337.5 and $resultOfQuery["wind"]["deg"] <= 360))
+        if(
+            ($resultOfQuery["wind"]["deg"]>= 0 and $resultOfQuery["wind"]["deg"] <= 22.5) or
+            ($resultOfQuery["wind"]["deg"]>= 337.5 and $resultOfQuery["wind"]["deg"] <= 360)
+        )
         {
             $wind_direction = 'Север';
         }
