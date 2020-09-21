@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper-app">
+
     <Layout/>
   </div>
  
@@ -15,7 +16,11 @@ export default {
 </script>
 
 <style>
-/* 
+*{
+  padding: 0;
+  margin: 0;
+}
+/*
 .wrapper-background-img {
   position: absolute;
   top: 0;
