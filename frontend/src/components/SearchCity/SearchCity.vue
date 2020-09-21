@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       message: "",
+      city: null,
     }
   },
   methods: {
@@ -31,6 +32,13 @@ export default {
           .catch((error) => {
             console.log(error);
           });
+
+      axios
+          .get('http://localhost:9000/' )
+          .then(response => {
+            this.city = response.data;
+          })
+          console.log(this.city)
     }
   }
 }
