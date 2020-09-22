@@ -17,6 +17,7 @@ export default {
 
 <style>
 *{
+  font-family: Arial, sans-serif;
   padding: 0;
   margin: 0;
 }

@@ -32,7 +32,7 @@ name: "Body",
   border-radius: 10px;
 }
 .wrapper-body__city{
-  color: #000;
+  color: #fff;
   font-size: 60px;
   font-weight: bold;
   padding-top: 10px;
@@ -41,18 +41,19 @@ name: "Body",
 .wrapper-body__temp{
   font-size: 70px;
   padding-top: 15px;
-  color: white;
+  color: #fff;
 }
 
 .wrapper-body__weather{
   font-size: 15px;
   font-weight: lighter;
-  color: black;
+  color: #fff;
 }
 .wrapper-body__wind{
   padding-top: 40px;
   font-size: 20px;
   font-weight: normal;
+  color: #fff;
 }
 
 </style>

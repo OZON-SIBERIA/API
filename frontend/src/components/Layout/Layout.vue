@@ -61,15 +61,17 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   z-index: 0;
+  object-fit: cover;
+
   background-color: rgba(0, 0, 0, .3);
 }
 
 .sunny{
   background-image: url(http://oboi.cc/uploads/new/big/oboik.ru_29246.jpg);
-
+  background-repeat: no-repeat;
 }
 .rain{
   background-image: url(https://rus.azattyq-ruhy.kz/cache/imagine/main_page_full/uploads/news/2020/03/30/5e81881a08b7d834348537.jpg) ;
