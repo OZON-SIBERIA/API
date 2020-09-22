@@ -22,5 +22,6 @@ $routes = [
 $request = Request::createFromGlobals();
 $router = $routes[$request->getMethod()][$request->getPathInfo()];
 $response = call_user_func($router, $request);
+$response->headers->set('Access-Control-Allow-Origin', '*');
 
 $response->send();
