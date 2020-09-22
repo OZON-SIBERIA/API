@@ -68,7 +68,6 @@ export default {
 
   background-color: rgba(0, 0, 0, .3);
 }
-
 .sunny{
   background-image: url(http://oboi.cc/uploads/new/big/oboik.ru_29246.jpg);
   background-repeat: no-repeat;

@@ -5,8 +5,11 @@
       <input class="input" type="text" v-model="message" placeholder="Введите город, который вас интересует...">
       <button v-on:click='searchApiPost'></button>
     </div>
-
-    <Body/>
+    <Body
+        :getAnswer="getAnswer"
+        :cityWeather="city"/>
+    <ErrorBody
+        :getError="getError"/>
 
   </div>
 </template>
@@ -15,15 +18,17 @@
 
 import axios from 'axios'
 import Body from "@/components/Body/Body";
+import ErrorBody from "@/components/ErrorBody/ErrorBody";
 
 export default {
   name: 'SearchCity',
-  components: {Body},
+  components: {ErrorBody, Body},
   data() {
     return {
       message: "",
-      city: null,
-      getAnswer: false
+      city: {},
+      getAnswer: false,
+      getError: false
     }
   },
   methods: {
@@ -32,23 +37,24 @@ export default {
       axios
           .post('http://localhost:9000/', str)
           .then((response) => {
-            console.log(response);
+            if (response.data.city === null) {
+              console.log(response.data.city)
+              this.getAnswer = false
+              this.getError = true
+              this.city = {}
+              this.message = ''
+            } else {
+              this.getAnswer = true
+              this.getError = false
+              this.city = response.data
+              this.message = ''
+            }
+
+
           })
           .catch((error) => {
             console.log(error);
           });
-
-      axios
-          .get('http://localhost:9000/' )
-          .then(response => {
-            this.city = response.data;
-            this.getAnswer = true
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-
-      console.log(this.city)
     }
   }
 }
@@ -60,11 +66,12 @@ export default {
   padding-top: 50px;
   min-height: 700px;
 }
-.wrapper-input{
+
+.wrapper-input {
   position: relative;
   margin: 0 auto;
   width: 300px;
-  padding-bottom:50px ;
+  padding-bottom: 50px;
 }
 
 input, button {
@@ -72,12 +79,14 @@ input, button {
   outline: none;
   border-radius: 3px;
 }
+
 input {
   width: 100%;
   height: 42px;
   background: #F9F0DA;
   padding-left: 15px;
 }
+
 button {
   height: 26px;
   width: 26px;
@@ -88,11 +97,11 @@ button {
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   background: #921904;
 }
 
-input:hover{
+input:hover {
   background: #bfbab2;
 }
 
@@ -103,9 +112,7 @@ button:before {
   font-size: 20px;
   font-weight: bold;
 }
-.wrapper-city{
-  padding-top: 50px;
-  font-size: 80px;
-}
+
+
 
 </style>

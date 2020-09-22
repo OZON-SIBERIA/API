@@ -1,15 +1,15 @@
 <template>
-<div  class="wrapper-body">
+<div v-if="getAnswer" class="wrapper-body">
   <div class="wrapper-body__city">
-    Пермь
-    <div class="wrapper-body__temp">12 °C</div>
-    <div class="wrapper-body__weather">Переменная облачность, ощущается как 10°C</div>
+    {{ cityWeather.city }}
+    <div class="wrapper-body__temp">{{ cityWeather.temperature}} °C</div>
+    <div class="wrapper-body__weather">{{cityWeather.weather}}, ощущается как {{ cityWeather.feels_like}}°C</div>
 
     <div class="wrapper-body__wind">
-      Ветер северо-западный, скорость 12 м/с
+      Ветер {{cityWeather.wind_direction}}, скорость {{cityWeather.wind_speed}} м/с
     </div>
     <div class="wrapper-body__wind">
-      Влажность 15%
+      Влажность {{cityWeather.humidity}}%
     </div>
 
   </div>
@@ -19,6 +19,7 @@
 <script>
 export default {
 name: "Body",
+props: ["cityWeather", "getAnswer"]
 }
 </script>
 
