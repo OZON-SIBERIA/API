@@ -67,6 +67,7 @@ class OpenWeatherAPI
         }
 
         $weatherInfo = (array("city" => $resultOfQuery["name"],
+            "country" => $resultOfQuery["sys"]["country"],
             "datetime" => $resultOfQuery["dt"],
             "temperature" => round(($resultOfQuery["main"]["temp"]-273.15)),
             "feels_like" => round(($resultOfQuery["main"]["feels_like"]-273.15)),
