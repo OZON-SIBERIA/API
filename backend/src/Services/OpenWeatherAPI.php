@@ -31,35 +31,35 @@ class OpenWeatherAPI
             ($resultOfQuery["wind"]["deg"]>= 337.5 and $resultOfQuery["wind"]["deg"] <= 360)
         )
         {
-            $wind_direction = 'Север';
+            $wind_direction = 'Северного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 22.5 and $resultOfQuery["wind"]["deg"] <= 67.5))
         {
-            $wind_direction = 'Северо-Восток';
+            $wind_direction = 'Северо-Восточного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 67.5 and $resultOfQuery["wind"]["deg"] <= 112.5))
         {
-            $wind_direction = 'Восток';
+            $wind_direction = 'Восточного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 112.5 and $resultOfQuery["wind"]["deg"] <= 157.5))
         {
-            $wind_direction = 'Юго-Восток';
+            $wind_direction = 'Юго-Восточного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 157.5 and $resultOfQuery["wind"]["deg"] <= 202.5))
         {
-            $wind_direction = 'Юг';
+            $wind_direction = 'Южного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 202.5 and $resultOfQuery["wind"]["deg"] <= 247.5))
         {
-            $wind_direction = 'Юго-Запад';
+            $wind_direction = 'Юго-Западного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 247.5 and $resultOfQuery["wind"]["deg"] <= 292.5))
         {
-            $wind_direction = 'Запад';
+            $wind_direction = 'Западного';
         }
         elseif (($resultOfQuery["wind"]["deg"]>= 292.5 and $resultOfQuery["wind"]["deg"] <= 337.5))
         {
-            $wind_direction = 'Северо-Запад';
+            $wind_direction = 'Северо-Западного';
         }
         else
         {

@@ -3,10 +3,15 @@
 
     <HeaderFront/>
     <div class="wrapper-bg-img">
-        <div v-if="this.weatherOne === 'suny'" class="weather sunny"></div>
-        <div v-if="this.weatherTwo === 'rainn'" class="weather rain"></div>
-        <div v-if="this.weatherThree === 'gray'" class="weather gray"></div>
-        <SearchCity/>
+        <div v-if="weatherSunny" class="weather sunny"></div>
+        <div v-else-if="weatherRain" class="weather rain"></div>
+        <div v-else class="weather gray"></div>
+
+
+
+        <SearchCity
+            :getWeather="getWeather"
+        />
 
     </div>
     <Footer/>
@@ -27,12 +32,48 @@ export default {
   },
   data() {
     return {
-      weatherOne: 'sunny',
-      weatherTwo: 'rain',
-      weatherThree: 'gray'
-
+      weatherNow: '',
+      classWeatherSunny : '',
+      classWeatherRain: '',
+      classWeatherGray: '',
+      weatherSunny: false,
+      weatherRain: false,
     }
-  }
+  },
+  methods:{
+    getWeather(weather){
+      // this.weatherSunny = false
+      // this.weatherRain = false
+      console.log(weather)
+      if(weather ===  'ясно' || weather === "небольшаДая облачность"){
+          this.weatherSunny = true
+          this.weatherRain = false
+
+        } else if(weather === 'дождь' || weather ==='небольшой дождь' || weather ==='небольшой проливной дождь'){
+        this.weatherSunny = false
+        this.weatherRain = true
+
+        } else {
+        this.weatherSunny = false
+        this.weatherRain = false
+      }
+
+      // if(this.weatherNow === 'null' || 'ясно' || 'облачно с прояснениями'){
+      //   this.classWeatherSunny = 'weather sunny'
+      //   console.log(this.weatherNow)
+      //   console.log(this.classWeather)
+      // } else if(this.weatherNow === 'дождь' || 'небольшой дождь'|| 'небольшой проливной дождь'){
+      //   this.classWeatherRain = 'weather rain'
+      //   console.log(this.weatherNow)
+      //   console.log(this.classWeather)
+      // } else if(this.weatherNow === 'переменная облачность' || 'пасмурно'){
+      //   this.classWeatherGray = 'weather gray'
+      //   console.log(this.weatherNow)
+      //   console.log(this.classWeather)
+      // }
+    }
+  },
+
 }
 </script>
 
@@ -53,7 +94,6 @@ export default {
   left: 0;
   min-height: 100%;
   min-width: 100%;
-
   background-size: 100%;
 }
 .weather:after{
@@ -64,13 +104,10 @@ export default {
   min-width: 100%;
   min-height: 100%;
   z-index: 0;
-  object-fit: cover;
-
   background-color: rgba(0, 0, 0, .3);
 }
 .sunny{
   background-image: url(http://oboi.cc/uploads/new/big/oboik.ru_29246.jpg);
-  background-repeat: no-repeat;
 }
 .rain{
   background-image: url(https://rus.azattyq-ruhy.kz/cache/imagine/main_page_full/uploads/news/2020/03/30/5e81881a08b7d834348537.jpg) ;

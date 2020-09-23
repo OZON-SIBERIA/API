@@ -6,7 +6,7 @@
     <div class="wrapper-body__weather">{{cityWeather.weather}}, ощущается как {{ cityWeather.feels_like}}°C</div>
 
     <div class="wrapper-body__wind">
-      Ветер {{cityWeather.wind_direction}}, скорость {{cityWeather.wind_speed}} м/с
+      Ветер {{cityWeather.wind_direction}} направления, скорость {{cityWeather.wind_speed}} м/с
     </div>
     <div class="wrapper-body__wind">
       Влажность {{cityWeather.humidity}}%
