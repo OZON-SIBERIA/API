@@ -7,6 +7,7 @@ use App\Controllers\ServicesController;
 use Symfony\Component\HttpFoundation\Request;
 
 
+
 $routes = [
     "GET" => [
         '/' => [ServicesController::class, "getWeatherAction"]
